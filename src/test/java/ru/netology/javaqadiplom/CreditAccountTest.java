@@ -46,6 +46,20 @@ public class CreditAccountTest {
     }
 
     @Test
+    public void testAddAmountZero() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.add(0);
+
+        Assertions.assertEquals(0, account.getBalance());
+
+    }
+
+    @Test
     public void shouldPayToNegativeBalance() {
         CreditAccount account = new CreditAccount(
                 0,
@@ -96,6 +110,20 @@ public class CreditAccountTest {
         );
 
         account.pay(-1000);
+
+        Assertions.assertEquals(0, account.getBalance());
+
+    }
+
+    @Test
+    public void testPayAmountZero() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.pay(0);
 
         Assertions.assertEquals(0, account.getBalance());
 
