@@ -44,7 +44,6 @@ public class SavingAccountTest {
                 50_000,
                 10
         );
-
     }
 
     @Test
