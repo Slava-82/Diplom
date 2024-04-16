@@ -19,17 +19,15 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddToNegativeBalance() {
+    public void shouldAddToPositiveBalanceIfInitialBalance1000() {
         CreditAccount account = new CreditAccount(
                 1000,
                 5_000,
                 15
         );
 
-        account.pay(100);
+        account.add(3_000);
 
-
-        Assertions.assertEquals(3000, account.getBalance());
+        Assertions.assertEquals(4_000, account.getBalance());
     }
-
 }

@@ -2,7 +2,7 @@ package ru.netology.javaqadiplom;
 
 public class Account {
     protected int balance;
-    protected int rate;
+    protected static int rate;
 
     public boolean pay(int amount) {
         return false;
