@@ -24,6 +24,21 @@ public class SavingAccountTest {
     }
 
     @Test
+    void ShouldCreateSavingAccountIfRateZero() {
+        SavingAccount savingAcc = new SavingAccount(
+                1000,
+                0,
+                50_000,
+                0
+        );
+
+        Assertions.assertEquals(1000, savingAcc.getBalance());
+        Assertions.assertEquals(0, savingAcc.getMinBalance());
+        Assertions.assertEquals(50_000, savingAcc.getMaxBalance());
+        Assertions.assertEquals(0, savingAcc.getRate());
+    }
+
+    @Test
     void ShouldNotCreateSavingAccountRateMinus1() {
         SavingAccount savingAcc = new SavingAccount(
                 0,
