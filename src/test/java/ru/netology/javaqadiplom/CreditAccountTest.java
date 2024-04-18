@@ -180,4 +180,103 @@ public class CreditAccountTest {
                     new CreditAccount(1000, 5000, -15);
                 });
     }
+
+    @Test
+    void shouldPayAmountTrue() {
+        CreditAccount account = new CreditAccount(
+                200,
+                5_000,
+                15
+        );
+
+        Assertions.assertTrue(account.pay(50));
+    }
+
+    @Test
+    void shouldPayAmountFalse() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        Assertions.assertFalse(account.pay(-50));
+    }
+
+    @Test
+    void shouldPayAmountZero() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        Assertions.assertFalse(account.pay(0));
+    }
+
+    @Test
+    void shouldPayBalanceMoreCreditLimitTrue() {
+        CreditAccount account = new CreditAccount(
+                10_000,
+                5_000,
+                15
+        );
+
+        Assertions.assertTrue(account.pay(50));
+    }
+
+    @Test
+    void shouldPayBalanceNegativeCreditLimitFalse() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        Assertions.assertFalse(account.pay(50_000));
+    }
+
+    @Test
+    void shouldPayBalanceEqualsCreditLimitTrue() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertTrue(account.pay(5_000));
+    }
+
+    @Test
+    void shouldAddAmountTrue() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        Assertions.assertTrue(account.pay(500));
+    }
+
+    @Test
+    void shouldAddAmountFalse() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        Assertions.assertFalse(account.pay(-500));
+    }
+
+    @Test
+    void shouldAddTrue() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        Assertions.assertTrue(account.add(1000));
+    }
 }
