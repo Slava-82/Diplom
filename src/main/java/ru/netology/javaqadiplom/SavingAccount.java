@@ -24,6 +24,7 @@ public class SavingAccount extends Account {
         if (rate < 0) {
             throw new IllegalArgumentException(
                     "Накопительная ставка не может быть отрицательной, а у вас: " + rate
+
             );
         }
         this.balance = initialBalance;
@@ -87,6 +88,7 @@ public class SavingAccount extends Account {
             throw new IllegalArgumentException(
                     "Баланс не может быть больше максимального баланса, а у вас: "
                             + " баланс: " + initialBalance + " больше максимального баланса: " + maxBalance
+
             );
         }
         this.balance = initialBalance;
@@ -107,6 +109,7 @@ public class SavingAccount extends Account {
      */
     @Override
     public boolean pay(int amount) {
+
         if (amount <= 0 || balance - amount < minBalance) {
             return false;
         }
@@ -122,9 +125,7 @@ public class SavingAccount extends Account {
      * завершиться вернув false и ничего не поменяв на счёте.
      *
      * @param amount - сумма пополнения
-     * @param amount
      * @return true если операция прошла успешно, false иначе.
-     * @return
      */
 
     @Override
@@ -142,9 +143,8 @@ public class SavingAccount extends Account {
      * счёт не будет меняться год. Сумма процентов приводится к целому
      * числу через отбрасывание дробной части (так и работает целочисленное деление).
      * Пример: если на счёте 200 рублей, то при ставке 15% ответ должен быть 30.
-     *
      * @return
-     */
+     **/
     @Override
     public int yearChange() {
         return balance / 100 * rate;
@@ -158,3 +158,4 @@ public class SavingAccount extends Account {
         return maxBalance;
     }
 }
+//zeu
