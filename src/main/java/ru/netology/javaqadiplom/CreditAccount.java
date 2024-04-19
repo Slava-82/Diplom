@@ -50,17 +50,13 @@ public class CreditAccount extends Account {
      */
     @Override
     public boolean pay(int amount) {
-        if (amount <= 0) {
+        if (amount <= 0 || balance - amount < -creditLimit) {
             return false;
-        }
-        if (balance > -creditLimit) {
-            if ((balance - amount) >= -creditLimit) {
-                balance = balance - amount;
-                return true;
-            }
+
         } else {
-            return false;
-        } return false;
+            balance -= amount;
+            return true;
+        }
     }
 
     /**
@@ -95,13 +91,11 @@ public class CreditAccount extends Account {
      */
     @Override
     public int yearChange() {
-        if (balance >= 0) {
-            return 0;
-        } else {
+        if (balance < 0) {
             return balance / 100 * rate;
         }
+        return 0;
     }
-
 
     public int getCreditLimit() {
         return creditLimit;
