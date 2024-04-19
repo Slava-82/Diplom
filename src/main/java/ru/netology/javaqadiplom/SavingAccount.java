@@ -74,8 +74,9 @@ public class SavingAccount extends Account {
 
         if (initialBalance < minBalance) {
             throw new IllegalArgumentException(
-                    "Баланс не может быть меньше минимального баланса, а у вас: "
-                            + " баланс: " + initialBalance + " меньше минимального баланса: " + minBalance
+
+                    "Начальный баланс не может быть меньше минимального баланса, а у вас: "
+                            + " начальный баланс: " + initialBalance + " меньше минимального баланса: " + minBalance
             );
         }
         this.balance = initialBalance;
@@ -85,8 +86,10 @@ public class SavingAccount extends Account {
 
         if (initialBalance > maxBalance) {
             throw new IllegalArgumentException(
-                    "Баланс не может быть больше максимального баланса, а у вас: "
-                            + " баланс: " + initialBalance + " больше максимального баланса: " + maxBalance
+
+                    "Начальный баланс не может быть больше максимального баланса, а у вас: "
+                            + " начальный баланс: " + initialBalance + " больше максимального баланса: " + maxBalance
+
             );
         }
         this.balance = initialBalance;
@@ -122,6 +125,7 @@ public class SavingAccount extends Account {
      * завершиться вернув false и ничего не поменяв на счёте.
      *
      * @param amount - сумма пополнения
+
      * @param amount
      * @return true если операция прошла успешно, false иначе.
      * @return
@@ -144,7 +148,7 @@ public class SavingAccount extends Account {
      * Пример: если на счёте 200 рублей, то при ставке 15% ответ должен быть 30.
      *
      * @return
-     */
+     **/
     @Override
     public int yearChange() {
         return balance / 100 * rate;
@@ -158,4 +162,3 @@ public class SavingAccount extends Account {
         return maxBalance;
     }
 }
-//zeu
