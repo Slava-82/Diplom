@@ -2,6 +2,7 @@ package ru.netology.javaqadiplom;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 public class SavingAccountTest {
     @Test
     public void shouldAddLessThanMaxBalance() {
@@ -15,6 +16,7 @@ public class SavingAccountTest {
         account.add(3_000);
         Assertions.assertEquals(2_000 + 3_000, account.getBalance());
     }
+
     /**
      * Тестируенм создание нового объекта сберегательного счёта с заданными параметрами.
      */
@@ -32,6 +34,7 @@ public class SavingAccountTest {
         Assertions.assertEquals(50_000, savingAcc.getMaxBalance());
         Assertions.assertEquals(5, savingAcc.getRate());
     }
+
     @Test
     void ShouldCreateSavingAccountIfRateZero() {
         SavingAccount savingAcc = new SavingAccount(
@@ -46,48 +49,56 @@ public class SavingAccountTest {
         Assertions.assertEquals(50_000, savingAcc.getMaxBalance());
         Assertions.assertEquals(0, savingAcc.getRate());
     }
+
     @Test
     void ShouldNotCreateSavingAccountRateMinus1() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(0, 0, 50_000, -1);
         });
     }
+
     @Test
     void ShouldNotCreateSavingAccountIfInitialBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(-1_000, 0, 50_000, 5);
         });
     }
+
     @Test
     void ShouldNotCreateSavingAccountIfMinBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(1_000, -1_000, 50_000, 5);
         });
     }
+
     @Test
     void ShouldNotCreateSavingAccountIfMaxBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(1_000, 1_000, -50_000, 5);
         });
     }
+
     @Test
     void ShouldNotCreateSavingAccountMinBalanceGreaterMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(3000, 10_000, 5_000, 5);
         });
     }
+
     @Test
     void ShouldNotCreateSavingAccountInitialBalanceGreaterMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(60_000, 1000, 50_000, 5);
         });
     }
+
     @Test
     void ShouldNotCreateSavingAccountInitialBalanceLessMinBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(3000, 10_000, 50_000, 5);
         });
     }
+
     /**
      * Тестируенм медод Пей
      */
@@ -102,6 +113,7 @@ public class SavingAccountTest {
 
         Assertions.assertTrue(savingAcc.pay(50));
     }
+
     @Test
     void shouldPayAndCountNewBalance() {
         SavingAccount savingAcc = new SavingAccount(
@@ -114,6 +126,7 @@ public class SavingAccountTest {
         savingAcc.pay(100);
         Assertions.assertEquals(900, savingAcc.getBalance());
     }
+
     @Test
     void shouldPayIfNewBalanceEvenMinBalance() {
         SavingAccount savingAcc = new SavingAccount(
@@ -125,6 +138,7 @@ public class SavingAccountTest {
 
         Assertions.assertTrue(savingAcc.pay(1000));
     }
+
     @Test
     void shouldPayIfNewBalanceMoreMinBalance() {
         SavingAccount savingAcc = new SavingAccount(
@@ -136,6 +150,7 @@ public class SavingAccountTest {
 
         Assertions.assertTrue(savingAcc.pay(999));
     }
+
     @Test
     void shouldNotPayIfAmountIsNegative() {
         SavingAccount savingAcc = new SavingAccount(
@@ -147,6 +162,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(savingAcc.pay(-50));
     }
+
     @Test
     void shouldNotPayIfNewBalanceIsLessThanMinBalance() {
         SavingAccount savingAcc = new SavingAccount(
@@ -158,6 +174,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(savingAcc.pay(1500));
     }
+
     /**
      * Тестируенм медод add
      */
@@ -172,6 +189,7 @@ public class SavingAccountTest {
 
         Assertions.assertTrue(savingAcc.add(999));
     }
+
     @Test
     void ShouldAddAmountAndCountNewBalance() {
         SavingAccount savingAcc = new SavingAccount(
@@ -184,6 +202,7 @@ public class SavingAccountTest {
         savingAcc.add(999);
         Assertions.assertEquals(1999, savingAcc.getBalance());
     }
+
     @Test
     void ShouldNotAddAmountIfZero() {
         SavingAccount savingAcc = new SavingAccount(
@@ -195,6 +214,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(savingAcc.add(0));
     }
+
     @Test
     void ShouldNotAddAmountIfNegative() {
         SavingAccount savingAcc = new SavingAccount(
@@ -206,6 +226,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(savingAcc.add(-10));
     }
+
     @Test
     void ShouldNotAddAmountIfOverMaxBalance() {
         SavingAccount savingAcc = new SavingAccount(
@@ -217,6 +238,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(savingAcc.add(50_000));
     }
+
     /**
      * Тестируенм медод yearChange
      */
@@ -234,6 +256,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void ShouldCalculateYearChangeIfBalanceZero() {
         SavingAccount savingAcc = new SavingAccount(
@@ -248,6 +271,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void ShouldCalculateYearChangeIfRateZero() {
         SavingAccount savingAcc = new SavingAccount(
@@ -262,6 +286,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void ShouldCalculateYearChangeIfAnswerNeedToRoundUp() {
         SavingAccount savingAcc = new SavingAccount(
