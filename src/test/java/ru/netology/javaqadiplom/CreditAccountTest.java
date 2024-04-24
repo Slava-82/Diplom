@@ -13,8 +13,6 @@ public class CreditAccountTest {
         );
 
         account.add(3_000);
-
-
         Assertions.assertEquals(3000, account.getBalance());
     }
     @Test
@@ -26,7 +24,6 @@ public class CreditAccountTest {
         );
 
         account.add(3000);
-
         Assertions.assertEquals(4_000, account.getBalance());
     }
     @Test
