@@ -41,28 +41,28 @@ public class SavingAccountTest {
     @Test
     void ShouldNotCreateSavingAccountRateMinus1() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(0,0,50_000,-1);
+            new SavingAccount(0, 0, 50_000, -1);
         });
     }
 
     @Test
     void ShouldNotCreateSavingAccountIfInitialBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(-1_000,0,50_000,5);
+            new SavingAccount(-1_000, 0, 50_000, 5);
         });
     }
 
     @Test
     void ShouldNotCreateSavingAccountIfMinBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(1_000,-1_000,50_000,5);
+            new SavingAccount(1_000, -1_000, 50_000, 5);
         });
     }
 
     @Test
     void ShouldNotCreateSavingAccountIfMaxBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(1_000,1_000,-50_000,5);
+            new SavingAccount(1_000, 1_000, -50_000, 5);
         });
     }
 
@@ -70,21 +70,21 @@ public class SavingAccountTest {
     @Test
     void ShouldNotCreateSavingAccountMinBalanceGreaterMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(3000,10_000,5_000,5);
+            new SavingAccount(3000, 10_000, 5_000, 5);
         });
     }
 
     @Test
     void ShouldNotCreateSavingAccountInitialBalanceGreaterMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(60_000,1000,50_000,5);
+            new SavingAccount(60_000, 1000, 50_000, 5);
         });
     }
 
     @Test
     void ShouldNotCreateSavingAccountInitialBalanceLessMinBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(3000,10_000,50_000,5);
+            new SavingAccount(3000, 10_000, 50_000, 5);
         });
     }
 

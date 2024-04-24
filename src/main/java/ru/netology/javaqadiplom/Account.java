@@ -1,8 +1,8 @@
 package ru.netology.javaqadiplom;
 
 public class Account {
-    protected int balance;
     protected static int rate;
+    protected int balance;
 
     public boolean pay(int amount) {
         return false;
@@ -25,6 +25,6 @@ public class Account {
     }
 
     public void setRate(int rate) {
-        this.rate = rate;
+        Account.rate = rate;
     }
 }

@@ -29,7 +29,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
 
         if (initialBalance < 0) {
             throw new IllegalArgumentException(
@@ -39,7 +39,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
 
         if (minBalance < 0) {
             throw new IllegalArgumentException(
@@ -49,7 +49,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
 
         if (maxBalance < 0) {
             throw new IllegalArgumentException(
@@ -59,7 +59,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
 
         if (minBalance > maxBalance) {
             throw new IllegalArgumentException(
@@ -70,7 +70,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
 
         if (initialBalance < minBalance) {
             throw new IllegalArgumentException(
@@ -82,7 +82,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
 
         if (initialBalance > maxBalance) {
             throw new IllegalArgumentException(
@@ -95,7 +95,7 @@ public class SavingAccount extends Account {
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
-        this.rate = rate;
+        Account.rate = rate;
     }
 
     /**
@@ -125,7 +125,6 @@ public class SavingAccount extends Account {
      * завершиться вернув false и ничего не поменяв на счёте.
      *
      * @param amount - сумма пополнения
-
      * @param amount
      * @return true если операция прошла успешно, false иначе.
      * @return
